@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import os
 from functools import lru_cache
+from typing import Literal
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -25,16 +26,17 @@ class Settings(BaseSettings):
     APP_VERSION: str = "1.0.0"
 
     # ── LLM Provider ────────────────────────────────────────
-    LLM_PROVIDER: str = "ollama"  # ollama | groq | openai
+    LLM_PROVIDER: Literal["ollama", "openai", "anthropic", "groq", "grok"] = "ollama"
 
     # Ollama
-    OLLAMA_BASE_URL: str = "http://ollama:11434"
-    OLLAMA_MODEL: str = "llama3.1:8b"
+    OLLAMA_BASE_URL: str = ""
+    OLLAMA_MODEL: str = ""
 
     # Groq
-    GROQ_API_KEY: str = ""
-    GROQ_MODEL: str = "llama-3.1-70b-versatile"
-
+    GROQ_MODEL: str = "llama-3.1-8b-instant"
+    groq_api_key: str = "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"
+    xai_api_key: str = ""
+    
     # OpenAI (optional)
     OPENAI_API_KEY: str = ""
     OPENAI_MODEL: str = "gpt-4o-mini"
