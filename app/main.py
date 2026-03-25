@@ -24,6 +24,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger("nlp-text-agent")
 
+# Suppress noisy third-party logs
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("transformers").setLevel(logging.ERROR)
+
 # ── App ──────────────────────────────────────────────────────────────────────
 
 settings = get_settings()
