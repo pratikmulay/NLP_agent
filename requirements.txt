@@ -36,3 +36,4 @@ langchain-groq
 langchain-openai
 langchain-community
 langchain-anthropic
+azure-storage-blob
